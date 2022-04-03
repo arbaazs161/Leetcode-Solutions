@@ -7,6 +7,8 @@ class Solution {
         return ans;
     }
     
+    
+    //Approach 1, using Extra space that is a boolean array as map to mark visited integer
     private void findPermutations(int[] nums, List<Integer> ds, List<List<Integer>> ans, boolean[] freq){
         if(ds.size() == nums.length){
             ans.add(new ArrayList<>(ds));
