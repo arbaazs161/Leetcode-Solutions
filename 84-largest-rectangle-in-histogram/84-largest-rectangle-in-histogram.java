@@ -1,7 +1,26 @@
 class Solution {
     public int largestRectangleArea(int[] heights) {
+       
+        //Sol 2
+        int n = heights.length; 
+        Stack<Integer> st = new Stack<>();
+        int maxA = 0; 
+        for(int i = 0;i<=n;i++) {
+            while(!st.isEmpty() && (i==n || heights[st.peek()] >= heights[i])) {
+                int height = heights[st.pop()];
+                int width; 
+                if(st.isEmpty()) width = i; 
+                else width = i - st.peek() - 1; 
+                
+                // cout << i << " " << width << " " << height << endl; 
+                maxA = Math.max(maxA, width * height); 
+            }
+            st.push(i); 
+        }
+        return maxA;
         
-        int n = heights.length;
+        //Sol 1
+        /*int n = heights.length;
         Stack<Integer> st = new Stack<>();
         int[] leftSmall = new int[n];
         int[] rightSmall = new int[n];
@@ -37,6 +56,6 @@ class Solution {
             maxA = Math.max(maxA, heights[i] * ((rightSmall[i] - leftSmall[i]) + 1));
         }
         
-        return maxA;
+        return maxA;*/
     }
 }
