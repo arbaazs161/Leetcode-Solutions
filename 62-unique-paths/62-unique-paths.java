@@ -5,6 +5,7 @@ class Solution {
         
         return dp.get(0).get(0);*/
         
+        //Sol2 using Combinations Technique (nCr)
         int N = n+m-2;
         int r = m-1;
         double res = 1;
