@@ -15,6 +15,8 @@
  */
 class Solution {
     public int deepestLeavesSum(TreeNode root) {
+        
+        //Simple : Perform Level order Traversal -> Add the values on last level of traversal and return the total
         Queue<TreeNode> q=new LinkedList<>();
         int sum=0;
         q.offer(root);
